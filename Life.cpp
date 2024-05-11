@@ -73,19 +73,17 @@ void Life::setBlock(sf::Vector2f indexes, bool state) {
 
 void Life::drawBlocks() {
     if (!this->isWindowFocused) return;
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-    {
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         sf::Vector2i position = sf::Mouse::getPosition(*this->window);
-        if (position.x >= 0 && position.x < this->window->getSize().x &&
-            position.y >= 0 && position.y < this->window->getSize().y) {
+        if (position.x >= BLOCK_SIZE && position.x < this->window->getSize().x - BLOCK_SIZE &&
+            position.y >= BLOCK_SIZE && position.y < this->window->getSize().y - BLOCK_SIZE) {
             this->setBlockFromMouse(sf::Vector2f(position), true);
         }
     }
-    else if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
-    {
+    else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
         sf::Vector2i position = sf::Mouse::getPosition(*this->window);
-        if (position.x >= 0 && position.x < this->window->getSize().x &&
-            position.y >= 0 && position.y < this->window->getSize().y) {
+        if (position.x >= BLOCK_SIZE && position.x < this->window->getSize().x - BLOCK_SIZE &&
+            position.y >= BLOCK_SIZE && position.y < this->window->getSize().y - BLOCK_SIZE) {
             this->setBlockFromMouse(sf::Vector2f(position), false);
         }
     }
