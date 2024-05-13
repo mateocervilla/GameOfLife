@@ -1,8 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include <array>
 #include <memory>
+
+#include "BlocksGrid.h"
 
 constexpr int WIDTH = 1800;
 constexpr int HEIGHT = 800;
@@ -14,45 +15,33 @@ constexpr int YBLOCKS = HEIGHT/BLOCK_SIZE;
 
 class Life {
 private:
-    
-    std::unique_ptr<sf::RenderWindow> window;
+
+    std::shared_ptr<sf::RenderWindow> window;
     sf::VideoMode videoMode;
     sf::Event ev;
     bool isWindowFocused;
 
-    // Enviroment
-    std::vector<std::vector<sf::RectangleShape>> blocks;
-    std::array<std::array<bool, YBLOCKS>, XBLOCKS> blocksState;
-    std::array<std::array<bool, YBLOCKS>, XBLOCKS> nextBlocksState;
-
     void initVariables();
     void initWindow();
     void initEnviroment();
-    void createGrid();
-
-    void setBlockFromMouse(sf::Vector2f point, bool state);
-    void setBlock(sf::Vector2f indexes, bool state);
-    void fillBlock(sf::Vector2f indexes, bool state);
-    void drawBlocks();
-
+    
+    std::unique_ptr<BlocksGrid> blocksGrid;
     
     void scanBlocks();
     int scanNeighbourBlocks(sf::Vector2f indexes);
+
     bool playEnabled;
     int speed;
 
     sf::Clock clock;
 
-
 public:
     Life();
     virtual ~Life();
-
 
     const bool running() const;
 
     void pollEvents();
     void update();
     void render();
-
 };

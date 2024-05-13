@@ -17,7 +17,7 @@ if(WIN32)
     find_package(SFML 2.6.1 COMPONENTS graphics window system REQUIRED)
 endif()
 
-add_executable(${PROJECT_NAME} main.cpp Life.cpp)
+add_executable(${PROJECT_NAME} main.cpp Life.cpp BlocksGrid.cpp)
 target_include_directories(${PROJECT_NAME} PUBLIC ${SFML_PATH}/include)
 target_link_directories(${PROJECT_NAME} PUBLIC ${SFML_PATH}/lib)
 
