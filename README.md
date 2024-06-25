@@ -1,6 +1,7 @@
 # Game of Life
 A C++ + SFML implementation of the [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
+![gameOfLife](https://github.com/mateocervilla/GameOfLife/assets/68401037/c3c1b038-17f5-4fd2-bb55-13ad0b044404)
 
 ## Table of contents
 * [Requirements](#requirements)
